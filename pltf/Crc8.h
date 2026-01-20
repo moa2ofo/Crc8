@@ -49,7 +49,7 @@
  */
 
 /**
- * @brief Calculate CRC-8 over a byte buffer.
+ * @brief Crc8_Calc_u8: Calculate CRC-8 over a byte buffer.
  *
  * @details
  * **Goal of the function**
