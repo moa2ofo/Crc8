@@ -70,7 +70,7 @@
  * |--------------------|:--:|:---:|--------------------------------------------|:-----:|------------:|------------:|----------:|-----------------|----------|
  * | dataPtr            | X  |     | const uint8*                               |   X   |      -      |      -      |     -     | valid/NULL      | [-]      |
  * | dataLen            | X  |     | size_t                                     |   X   |      1      |      0      |     1     | [0, SIZE_MAX]   | [byte]   |
- * | CRC8_INIT_U8       | X  |  X  | uint8 (constant / macro)                   |   -   |      -      |      -      |     -     | [0,255]         | [-]      |
+ * | CRC8_INIT_U8       | X  |  X  | uint8 (constant / macro)                   |   -   |      -      |      -      |     -     | [0,200]         | [-]      |
  *
  * @par Activity diagram (PlantUML)
  *
