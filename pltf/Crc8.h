@@ -7,46 +7,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-/**
- * @file Crc8.h
- * @brief Public API for CRC-8 calculation (byte-wise update and buffer CRC).
- *
- * @details
- * This header provides the public interface of a CRC-8 implementation that
- * supports:
- * - Incremental CRC update (streaming) via @ref Crc8_Upd_u8
- * - Full-buffer CRC calculation via @ref Crc8_Calc_u8
- *
- * The implementation is table-driven. The internal lookup table is lazily
- * initialized on first use by the underlying module (see private interface in
- * `Crc8_priv.h`).
- *
- * @note
- * - The CRC polynomial and initial value are defined by module configuration
- *   (e.g. `CRC8_POLY_U8`, `CRC8_INIT_U8`) in the corresponding `.c` / config.
- * - `Crc8_Calc_u8(NULL, len)` returns `CRC8_INIT_U8` to avoid invalid access.
- *
- * @par Typical usage
- * **Full-buffer mode**
- * @code
- * uint8_t crc = Crc8_Calc_u8(buf, bufLen);
- * @endcode
- *
- * **Streaming mode**
- * @code
- * uint8_t crc = CRC8_INIT_U8;
- * for (i = 0; i < n; i++)
- * {
- *     crc = Crc8_Upd_u8(crc, streamByte[i]);
- * }
- * @endcode
- *
- * @par Reentrancy / thread-safety
- * The public APIs are reentrant with respect to their parameters, but the module
- * may rely on a shared internal lookup table initialized lazily on first use.
- * If used concurrently from multiple threads/cores, ensure external protection
- * during the first call (table build) or initialize once in a controlled phase.
- */
+
 
 /**
  * @brief Crc8_Calc_u8: Calculate CRC-8 over a byte buffer.
