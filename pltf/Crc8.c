@@ -37,15 +37,24 @@ uint8_t Crc8_Upd_u8(uint8_t crc, uint8_t dataByte) {
   return CalcByte_u8(crc, dataByte);
 }
 
-uint8_t Crc8_Calc_u8(const uint8_t *dataPtr, size_t dataLen) {
-  uint8_t crc = CRC8_INIT_U8;
-  size_t byteIdx;
+uint8_t Crc8_Calc_u8(const uint8_t *dataPtr, size_t dataLen)
+{
+    uint8_t l_crc_u8;
+    size_t l_byteIdx_u32;
 
-  if(dataPtr == NULL) { return CRC8_INIT_U8; }
+    l_crc_u8 = CRC8_INIT_U8;
 
-  EnsureTblInit();
+    if (dataPtr == NULL)
+    {
+        return CRC8_INIT_U8;
+    }
 
-  for(byteIdx = 0u; byteIdx < dataLen; byteIdx++) { crc = CalcByte_u8(crc, dataPtr[byteIdx]); }
+    EnsureTblInit();
 
-  return crc;
+    for (l_byteIdx_u32 = 0; l_byteIdx_u32 < dataLen; l_byteIdx_u32++)
+    {
+        l_crc_u8 = CalcByte_u8(l_crc_u8, dataPtr[l_byteIdx_u32]);
+    }
+
+    return l_crc_u8;
 }
