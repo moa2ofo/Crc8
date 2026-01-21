@@ -7,8 +7,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-
-
 /**
  * @brief Crc8_Calc_u8: Calculate CRC-8 over a byte buffer.
  *
