@@ -12,10 +12,7 @@ static void EnsureTblInit(void) {
 }
 
 static void BuildTbl(void) {
-  uint16_t idx;
-  uint8_t bitIdx;
-  for(idx = 0u; idx < 256u; idx++) {
-    uint8_t crc = (uint8_t)idx;
+  uint16_t idx;uint8_t bitIdx;for(idx = 0u; idx < 256u; idx++) {uint8_t crc = (uint8_t)idx;
     for(bitIdx = 0u; bitIdx < 8u; bitIdx++) {
       if((crc & 0x80u) != 0u) {
         crc = (uint8_t)((crc << 1u) ^ CRC8_POLY_U8);
