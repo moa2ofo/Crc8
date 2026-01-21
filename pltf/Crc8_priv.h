@@ -104,7 +104,7 @@ static void EnsureTblInit(void);
  *
  * The processing logic:
  * - For each `idx` in [0..255]:
- *   - Set `crc = (uint8)idx`
+ *   - Set `crc = (uint8_t)idx`
  *   - Repeat 8 times:
  *     - If MSB of `crc` is set, shift left and XOR with `CRC8_POLY_U8`
  *     - Else shift left
@@ -114,8 +114,8 @@ static void EnsureTblInit(void);
  *
  * | Interface          | In | Out | Data type / Signature           | Param | Data factor | Data offset | Data size | Data range | Data unit |
  * |--------------------|:--:|:---:|---------------------------------|:-----:|------------:|------------:|----------:|-----------:|----------|
- * | Crc8Tbl_u8[idx]    |    |  X  | uint8[256]                      |   -   |      1      |      0      |    256    | [0,255]    | [-]      |
- * | CRC8_POLY_U8       | X  |     | uint8 (constant / macro)        |   -   |      -      |      -      |     -     | [0,255]    | [-]      |
+ * | Crc8Tbl_u8[idx]    |    |  X  | uint8_t[256]                      |   -   |      1      |      0      |    256    | [0,255]    | [-]      |
+ * | CRC8_POLY_U8       | X  |     | uint8_t (constant / macro)        |   -   |      -      |      -      |     -     | [0,255]    | [-]      |
  *
  * @par Activity diagram (PlantUML)
  *
@@ -123,7 +123,7 @@ static void EnsureTblInit(void);
  * start
  * :idx = 0;
  * while (idx < 256) is (yes)
- *   :crc = (uint8)idx;
+ *   :crc = (uint8_t)idx;
  *   :bitIdx = 0;
  *   while (bitIdx < 8) is (yes)
  *     if ((crc & 0x80) != 0) then (msb=1)
@@ -153,22 +153,22 @@ static void BuildTbl(void);
  * precomputed lookup table.
  *
  * The processing logic:
- * - Index = `(uint8)(crc ^ dataByte)`
+ * - Index = `(uint8_t)(crc ^ dataByte)`
  * - Return `Crc8Tbl_u8[Index]`
  *
  * @par Interface summary
  *
  * | Interface         | In | Out | Data type / Signature                    | Param | Data factor | Data offset | Data size | Data range | Data unit |
  * |-------------------|:--:|:---:|------------------------------------------|:-----:|------------:|------------:|----------:|-----------:|----------|
- * | crc               | X  |     | uint8                                    |   X   |      1      |      0      |     1     | [0,255]    | [-]      |
- * | dataByte          | X  |     | uint8                                    |   X   |      1      |      0      |     1     | [0,255]    | [-]      |
- * | Crc8Tbl_u8[]      | X  |     | uint8[256]                               |   -   |      1      |      0      |    256    | [0,255]    | [-]      |
+ * | crc               | X  |     | uint8_t                                    |   X   |      1      |      0      |     1     | [0,255]    | [-]      |
+ * | dataByte          | X  |     | uint8_t                                    |   X   |      1      |      0      |     1     | [0,255]    | [-]      |
+ * | Crc8Tbl_u8[]      | X  |     | uint8_t[256]                               |   -   |      1      |      0      |    256    | [0,255]    | [-]      |
  *
  * @par Activity diagram (PlantUML)
  *
  * @startuml
  * start
- * :idx = (uint8)(crc XOR dataByte);
+ * :idx = (uint8_t)(crc XOR dataByte);
  * :crcNew = Crc8Tbl_u8[idx];
  * :return crcNew;
  * stop
