@@ -1,9 +1,12 @@
-name: Clang Format
+name: Auto Clang-Format
 
 on:
   push:
     branches: ["**"]
   pull_request:
+
+permissions:
+  contents: write   # REQUIRED to push changes back
 
 jobs:
   format:
@@ -12,9 +15,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # needed so git can push back
 
       - name: Install clang-format
-        run: sudo apt-get update && sudo apt-get install -y clang-format
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format
 
       - name: Run clang-format on all .c and .h files
         run: |
@@ -23,12 +30,15 @@ jobs:
             -not -path "./.git/*" \
             -exec clang-format -i {} \;
 
-      - name: Check for unformatted changes
+      - name: Commit and push changes (if any)
         run: |
-          if ! git diff --quiet; then
-            echo "❌ Code was not properly formatted. Please run clang-format locally."
-            echo "Below are the formatting changes:"
-            git diff
-            exit 1
-          fi
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
 
+          if ! git diff --quiet; then
+            git add .
+            git commit -m "Auto-format: clang-format applied"
+            git push
+          else
+            echo "No formatting changes needed."
+          fi
