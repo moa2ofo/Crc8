@@ -1,4 +1,4 @@
-
+#include "Crc8.h"
 #include "Crc8_priv.h"
 
 #define CRC8_POLY_U8 (0x07u)
