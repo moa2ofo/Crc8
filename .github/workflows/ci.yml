@@ -80,12 +80,6 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          # If nothing changed, do nothing
-          if git diff --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
-
           # Rebase on latest remote to avoid push conflicts
           git pull --rebase
 
