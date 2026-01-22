@@ -46,7 +46,7 @@ jobs:
             -exec clang-format -i {} \;
 
       # -----------------------------
-      # Unit tests (always runs)
+      # Get unitTestLauncher repo
       # -----------------------------
       - name: Checkout unitTestLauncher repo
         uses: actions/checkout@v4
@@ -63,6 +63,16 @@ jobs:
       - name: Verify Docker is available
         run: docker info
 
+      # -----------------------------
+      # swCmpBuildCheck (always runs)
+      # -----------------------------
+      - name: Run swCmpBuildCheck (launcher repo)
+        run: |
+          python3 unitTestLauncher/swCmpBuildCheck.py
+
+      # -----------------------------
+      # Unit tests (always runs)
+      # -----------------------------
       - name: Fix permissions for unitTestLauncher workspace
         run: |
           sudo mkdir -p unitTestLauncher/utExecutionAndResults/utUnderTest/build
@@ -83,7 +93,7 @@ jobs:
       # -----------------------------
       # Single commit at the end
       # -----------------------------
-      - name: Commit and push changes (format + utResults)
+      - name: Commit and push changes (format + buildCheck + utResults)
         if: github.event_name == 'push'
         run: |
           git config --global user.name "github-actions"
