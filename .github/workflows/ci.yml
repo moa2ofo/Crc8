@@ -108,6 +108,7 @@ jobs:
 
       # -----------------------------
       # Single commit at the end (success OR failure)
+      # Writes ci_status/last_status with full stage outcomes.
       # -----------------------------
       - name: Commit and push changes (format + buildCheck + utResults)
         if: github.event_name == 'push' && always()
@@ -130,20 +131,24 @@ jobs:
             fi
           done
 
-          # If something failed, create/update a marker file so there's ALWAYS something to commit
+          mkdir -p ci_status
+
           if [ "$FAILED" -eq 1 ]; then
-            mkdir -p ci_status
-            {
-              echo "CI FAILED"
-              echo "Run: ${RUN_URL}"
-              echo "clang-format: ${FORMAT_OUTCOME}"
-              echo "docker info: ${DOCKER_OUTCOME}"
-              echo "swCmpBuildCheck: ${BUILD_OUTCOME}"
-              echo "unit tests: ${UT_OUTCOME}"
-              echo "rsync utResults: ${RSYNC_OUTCOME}"
-              echo "Timestamp (UTC): $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-            } > ci_status/last_failure.txt
+            STATUS_LINE="CI FAILED"
+          else
+            STATUS_LINE="CI PASSED"
           fi
+
+          {
+            echo "${STATUS_LINE}"
+            echo "Run: ${RUN_URL}"
+            echo "clang-format: ${FORMAT_OUTCOME}"
+            echo "docker info: ${DOCKER_OUTCOME}"
+            echo "swCmpBuildCheck: ${BUILD_OUTCOME}"
+            echo "unit tests: ${UT_OUTCOME}"
+            echo "rsync utResults: ${RSYNC_OUTCOME}"
+            echo "Timestamp (UTC): $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          } > ci_status/last_status
 
           git add -A
 
