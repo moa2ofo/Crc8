@@ -64,7 +64,6 @@ jobs:
       - name: Verify Docker is available
         run: docker info
 
-      # FIX: ensure Docker container can write to mounted folders
       - name: Fix permissions for unitTestLauncher workspace
         run: |
           sudo mkdir -p unitTestLauncher/utExecutionAndResults/utUnderTest/build
@@ -73,6 +72,24 @@ jobs:
       - name: Run unit tests (launcher repo)
         run: |
           script -q -e -c "python3 unitTestLauncher/unitTestsLauncher.py all" /dev/null
+
+      - name: Replace utResults with launcher results
+        run: |
+          # Clear existing utResults
+          rm -rf utExecutionAndResults/utResults/*
+          rm -rf utExecutionAndResults/utResults/.* 2>/dev/null || true
+
+          # Move new results
+          mv unitTestLauncher/utExecutionAndResults/utResults/* utExecutionAndResults/utResults/ || true
+          mv unitTestLauncher/utExecutionAndResults/utResults/.* utExecutionAndResults/utResults/ 2>/dev/null || true
+
+          # Commit and push
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
+          git add .
+          git commit -m "unit tests executed" || echo "No changes to commit"
+          git push || echo "No push needed"
 
       - name: Upload unit test results
         if: always()
