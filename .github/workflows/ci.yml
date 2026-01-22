@@ -76,12 +76,12 @@ jobs:
       - name: Replace utResults with launcher results
         run: |
           # Clear existing utResults
-          rm -rf utExecutionAndResults/utResults/*
-          rm -rf utExecutionAndResults/utResults/.* 2>/dev/null || true
+          rm -rf utResults/*
+          rm -rf utResults/.* 2>/dev/null || true
 
           # Move new results
-          mv unitTestLauncher/utExecutionAndResults/utResults/* utExecutionAndResults/utResults/ || true
-          mv unitTestLauncher/utExecutionAndResults/utResults/.* utExecutionAndResults/utResults/ 2>/dev/null || true
+          mv unitTestLauncher/utExecutionAndResults/utResults/* utResults/ || true
+          mv unitTestLauncher/utExecutionAndResults/utResults/.* utResults/ 2>/dev/null || true
 
           # Commit and push
           git config --global user.name "github-actions"
@@ -91,11 +91,4 @@ jobs:
           git commit -m "unit tests executed" || echo "No changes to commit"
           git push || echo "No push needed"
 
-      - name: Upload unit test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: unit-test-results
-          path: |
-            utExecutionAndResults/utResults
-            unitTestLauncher/utExecutionAndResults/utResults
+      
