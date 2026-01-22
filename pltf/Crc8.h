@@ -25,11 +25,14 @@
  *
  * @par Interface summary
  *
- * | Interface          | In | Out | Data type / Signature                      | Param | Data factor | Data offset | Data size | Data range      | Data unit |
+ * | Interface          | In | Out | Data type / Signature | Param | Data factor
+ * | Data offset | Data size | Data range      | Data unit |
  * |--------------------|:--:|:---:|--------------------------------------------|:-----:|------------:|------------:|----------:|-----------------|----------|
- * | dataPtr            | X  |     | const uint8_t*                               |   X   |      -      |      -      |     -     | valid/NULL      | [-]      |
- * | dataLen            | X  |     | size_t                                     |   X   |      1      |      0      |     1     | [0, SIZE_MAX]   | [byte]   |
- * | CRC8_INIT_U8       | X  |  X  | uint8_t (constant / macro)                   |   -   |      -      |      -      |     -     | [0,200]         | [-]      |
+ * | dataPtr            | X  |     | const uint8_t* |   X   |      -      | - |
+ * -     | valid/NULL      | [-]      | | dataLen            | X  |     | size_t
+ * |   X   |      1      |      0      |     1     | [0, SIZE_MAX]   | [byte] |
+ * | CRC8_INIT_U8       | X  |  X  | uint8_t (constant / macro) |   -   |      -
+ * |      -      |     -     | [0,200]         | [-]      |
  *
  * @par Activity diagram (PlantUML)
  *
@@ -51,12 +54,14 @@
  * @enduml
  *
  * @param dataPtr
- * Pointer to the input data buffer. If NULL, the function returns `CRC8_INIT_U8`.
+ * Pointer to the input data buffer. If NULL, the function returns
+ * `CRC8_INIT_U8`.
  *
  * @param dataLen
  * Number of bytes in the input buffer.
  *
- * @return CRC-8 computed over @p dataPtr[0..dataLen-1], or `CRC8_INIT_U8` if @p dataPtr is NULL.
+ * @return CRC-8 computed over @p dataPtr[0..dataLen-1], or `CRC8_INIT_U8` if @p
+ * dataPtr is NULL.
  */
 uint8_t Crc8_Calc_u8(const uint8_t *dataPtr, size_t dataLen);
 
@@ -77,10 +82,12 @@ uint8_t Crc8_Calc_u8(const uint8_t *dataPtr, size_t dataLen);
  *
  * @par Interface summary
  *
- * | Interface          | In | Out | Data type / Signature                      | Param | Data factor | Data offset | Data size | Data range | Data unit |
+ * | Interface          | In | Out | Data type / Signature | Param | Data factor
+ * | Data offset | Data size | Data range | Data unit |
  * |--------------------|:--:|:---:|--------------------------------------------|:-----:|------------:|------------:|----------:|-----------:|----------|
- * | crc                | X  |     | uint8_t                                      |   X   |      1      |      0      |     1     | [0,255]    | [-]      |
- * | dataByte           | X  |     | uint8_t                                      |   X   |      1      |      0      |     1     | [0,255]    | [-]      |
+ * | crc                | X  |     | uint8_t |   X   |      1      |      0 | 1
+ * | [0,255]    | [-]      | | dataByte           | X  |     | uint8_t |   X   |
+ * 1      |      0      |     1     | [0,255]    | [-]      |
  *
  * @par Activity diagram (PlantUML)
  *
