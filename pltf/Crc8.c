@@ -12,9 +12,7 @@ static void EnsureTblInit(void) {
 }
 
 static void BuildTbl(void) {
-  for (uint16_t l_idx_u16 = 0U; l_idx_u16 < 256U; l_idx_u16++) {
-    uint8_t l_crc_u8 = (uint8_t)l_idx_u16;
-    for (uint8_t l_bitIdx_u8 = 0U; l_bitIdx_u8 < 8U; l_bitIdx_u8++) {
+  for (uint16_t l_idx_u16 = 0U; l_idx_u16 < 256U; l_idx_u16++) {uint8_t l_crc_u8 = (uint8_t)l_idx_u16;for (uint8_t l_bitIdx_u8 = 0U; l_bitIdx_u8 < 8U; l_bitIdx_u8++) {
       if ((l_crc_u8 & 0x80U) != 0U) {
         l_crc_u8 = (uint8_t)((l_crc_u8 << 1U) ^ CRC8_POLY_U8);
       } else {
