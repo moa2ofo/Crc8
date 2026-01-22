@@ -12,21 +12,23 @@ static void EnsureTblInit(void) {
 }
 
 static void BuildTbl(void) {
-  uint16_t idx;
-  uint8_t bitIdx;
-  for(idx = 0u; idx < 256u; idx++) {
-    uint8_t crc = (uint8_t)idx;
-    for(bitIdx = 0u; bitIdx < 8u; bitIdx++) {
-      if((crc & 0x80u) != 0u) {
-        crc = (uint8_t)((crc << 1u) ^ CRC8_POLY_U8);
+  uint16_t l_idx_u16;
+  uint8_t l_bitIdx_u8;
+  uint8_t l_crc_u8;
+  for(l_idx_u16 = 0U; l_idx_u16 < 256U; l_idx_u16++) {
+    l_crc_u8 = (uint8_t)l_idx_u16;
+
+    for(l_bitIdx_u8 = 0U; l_bitIdx_u8 < 8U; l_bitIdx_u8++) {
+      if((l_crc_u8 & 0x80U) != 0U) {
+        l_crc_u8 = (uint8_t)((l_crc_u8 << 1U) ^ CRC8_POLY_U8);
       } else {
-        crc <<= 1u;
+        l_crc_u8 = (uint8_t)(l_crc_u8 << 1U);
       }
     }
-    Crc8Tbl_u8[idx] = crc;
+
+    Crc8Tbl_u8[l_idx_u16] = l_crc_u8;
   }
 }
-
 static uint8_t CalcByte_u8(uint8_t crc, uint8_t dataByte) {
   /* Table-driven update: crc' = table[crc XOR dataByte] */
   return Crc8Tbl_u8[(uint8_t)(crc ^ dataByte)];
@@ -39,13 +41,13 @@ uint8_t Crc8_Upd_u8(uint8_t crc, uint8_t dataByte) {
 
 uint8_t Crc8_Calc_u8(const uint8_t *dataPtr, size_t dataLen) {
   uint8_t crc = CRC8_INIT_U8;
-  size_t byteIdx;
+  size_t l_byteIdx_u32;
 
   if(dataPtr == NULL) { return CRC8_INIT_U8; }
 
   EnsureTblInit();
 
-  for(byteIdx = 0u; byteIdx < dataLen; byteIdx++) { crc = CalcByte_u8(crc, dataPtr[byteIdx]); }
+  for(l_byteIdx_u32 = 0U; l_byteIdx_u32 < dataLen; l_byteIdx_u32++) { crc = CalcByte_u8(crc, dataPtr[l_byteIdx_u32]); }
 
   return crc;
 }
