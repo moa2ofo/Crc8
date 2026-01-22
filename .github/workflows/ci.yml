@@ -46,11 +46,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1) Checkout *your* repo (where this workflow lives)
       - name: Checkout current repository
         uses: actions/checkout@v4
 
-      # 2) Checkout external repo into ./unitTestLauncher
       - name: Checkout unitTestLauncher repo
         uses: actions/checkout@v4
         with:
@@ -66,13 +64,16 @@ jobs:
       - name: Verify Docker is available
         run: docker info
 
-      # 3) Run the launcher from the downloaded repo
+      # FIX: ensure Docker container can write to mounted folders
+      - name: Fix permissions for unitTestLauncher workspace
+        run: |
+          sudo mkdir -p unitTestLauncher/utExecutionAndResults/utUnderTest/build
+          sudo chmod -R 777 unitTestLauncher/utExecutionAndResults
+
       - name: Run unit tests (launcher repo)
         run: |
-          # 'script' provides a pseudo-TTY so `docker run -it` works in CI
           script -q -e -c "python3 unitTestLauncher/unitTestsLauncher.py all" /dev/null
 
-      # Optional: upload results if the launcher writes them in your main repo workspace
       - name: Upload unit test results
         if: always()
         uses: actions/upload-artifact@v4
