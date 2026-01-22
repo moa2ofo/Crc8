@@ -5,7 +5,6 @@ uint8_t Crc8Tbl_u8[256u];
 
 /* FUNCTION TO TEST */
 
-
 void BuildTbl(void) {
   uint16_t l_idx_u16;
   uint8_t l_bitIdx_u8;

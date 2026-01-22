@@ -1,8 +1,8 @@
 CI PASSED
-Run: https://github.com/moa2ofo/Crc8/actions/runs/21252059933
+Run: https://github.com/moa2ofo/Crc8/actions/runs/21252436260
 clang-format: success
-docker info: success
-swCmpBuildCheck: success
-unit tests: success
+docker info: skipped
+swCmpBuildCheck: skipped
+unit tests: skipped
 rsync utResults: success
-Timestamp (UTC): 2026-01-22T14:29:18Z
+Timestamp (UTC): 2026-01-22T14:38:43Z
