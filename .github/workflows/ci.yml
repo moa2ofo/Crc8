@@ -3,6 +3,7 @@ name: CI
 on:
   push:
     branches: ["**"]
+  pull_request:
 
 permissions:
   contents: write
@@ -21,8 +22,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Pull early to avoid "unstaged changes" rebase errors
+      - name: Sync branch with remote (push only)
+        if: github.event_name == 'push'
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git pull --rebase
+
       # -----------------------------
-      # 1) clang-format (always runs)
+      # clang-format (always runs)
       # -----------------------------
       - name: Install clang-format
         run: |
@@ -36,9 +45,9 @@ jobs:
             -not -path "./.git/*" \
             -exec clang-format -i {} \;
 
-      # ------------------------------------------------
-      # 2) Unit tests via unitTestLauncher (always runs)
-      # ------------------------------------------------
+      # -----------------------------
+      # Unit tests (always runs)
+      # -----------------------------
       - name: Checkout unitTestLauncher repo
         uses: actions/checkout@v4
         with:
@@ -63,26 +72,30 @@ jobs:
         run: |
           script -q -e -c "python3 unitTestLauncher/unitTestsLauncher.py all" /dev/null
 
-      - name: Replace utResults with launcher results
+      - name: Replace utResults with launcher results (robust)
         run: |
-          rm -rf utResults/*
-          rm -rf utResults/.* 2>/dev/null || true
+          sudo apt-get update
+          sudo apt-get install -y rsync
 
-          mv unitTestLauncher/utExecutionAndResults/utResults/* utResults/ || true
-          mv unitTestLauncher/utExecutionAndResults/utResults/.* utResults/ 2>/dev/null || true
+          mkdir -p utResults
+          rsync -a --delete unitTestLauncher/utExecutionAndResults/utResults/ utResults/
 
-      # ------------------------------------------------
-      # 3) Single commit at the end (push events only)
-      # ------------------------------------------------
+      # -----------------------------
+      # Single commit at the end
+      # -----------------------------
       - name: Commit and push changes (format + utResults)
         if: github.event_name == 'push'
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          # Rebase on latest remote to avoid push conflicts
-          git pull --rebase
+          git add -A
 
-          git add .
-          git commit -m "unit test performed"
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          # Add [skip ci] to avoid re-trigger loop from this auto-commit
+          git commit -m "unit test performed [skip ci]"
           git push
