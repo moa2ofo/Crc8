@@ -1,8 +1,0 @@
-CI FAILED
-Run: https://github.com/moa2ofo/Crc8/actions/runs/21251165005
-clang-format: success
-docker info: success
-swCmpBuildCheck: failure
-unit tests: success
-rsync utResults: success
-Timestamp (UTC): 2026-01-22T13:58:09Z
