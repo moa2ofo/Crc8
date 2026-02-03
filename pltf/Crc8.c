@@ -37,30 +37,27 @@ uint8_t Crc8_Upd_u8(uint8_t crc, uint8_t dataByte) {
    * new data byte */
   return Crc8_CalcByte_u8(crc, dataByte);
 }
-uint8_t Crc8_Calc_u8(const uint8_t *dataPtr, size_t dataLen)
-{
-    /* Current CRC value during calculation */
-    uint8_t crc = CRC8_INIT_U8;
+uint8_t Crc8_Calc_u8(const uint8_t *dataPtr, size_t dataLen) {
+  /* Current CRC value during calculation */
+  uint8_t crc = CRC8_INIT_U8;
 
-    /**
-     * @brief Index for iterating over input data buffer
-     */
-    size_t l_byteIdx;
+  /**
+   * @brief Index for iterating over input data buffer
+   */
+  size_t l_byteIdx;
 
-    if (dataPtr == NULL)
-    {
-        /* Return initial CRC value if input pointer is NULL */
-        return CRC8_INIT_U8;
-    }
+  if (dataPtr == NULL) {
+    /* Return initial CRC value if input pointer is NULL */
+    return CRC8_INIT_U8;
+  }
 
-    /* Ensure the CRC-8 lookup table is initialized before calculation */
-    EnsureTblInit();
+  /* Ensure the CRC-8 lookup table is initialized before calculation */
+  EnsureTblInit();
 
-    /* Iterate over each byte in the input buffer and update CRC value */
-    for (l_byteIdx = 0U; l_byteIdx < dataLen; l_byteIdx++)
-    {
-        crc = CalcByte_u8(crc, dataPtr[l_byteIdx]);
-    }
+  /* Iterate over each byte in the input buffer and update CRC value */
+  for (l_byteIdx = 0U; l_byteIdx < dataLen; l_byteIdx++) {
+    crc = CalcByte_u8(crc, dataPtr[l_byteIdx]);
+  }
 
-    return crc;
+  return crc;
 }
