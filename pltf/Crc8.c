@@ -29,16 +29,15 @@ static uint8_t CalcByte_u8(uint8_t crc, uint8_t dataByte) {
   return Crc8Tbl_u8[(uint8_t)(crc ^ dataByte)];
 }
 
-uint8_t Crc8_Upd_u8(uint8_t crc, uint8_t dataByte)
-{
-    /* Ensure the internal CRC-8 lookup table is initialized */
-    EnsureTblInit();
+uint8_t Crc8_Upd_u8(uint8_t crc, uint8_t dataByte) {
+  /* Ensure the internal CRC-8 lookup table is initialized */
+  EnsureTblInit();
 
-    /* Compute the updated CRC using the table-driven byte update */
-    const uint8_t crcNew = CalcByte_u8(crc, dataByte);
+  /* Compute the updated CRC using the table-driven byte update */
+  const uint8_t crcNew = CalcByte_u8(crc, dataByte);
 
-    /* Return the updated CRC value */
-    return crcNew;
+  /* Return the updated CRC value */
+  return crcNew;
 }
 uint8_t Crc8_Calc_u8(const uint8_t *dataPtr, size_t dataLen) {
   /* Current CRC value during calculation */
