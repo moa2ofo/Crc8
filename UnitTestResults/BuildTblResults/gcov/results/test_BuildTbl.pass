@@ -5,27 +5,27 @@
   :basename: test_BuildTbl.c
 :successes:
 - :test: test_BuildTbl_PopulatesTable
-  :line: 25
+  :line: 26
   :message: ''
   :unity_test_time: 0
 - :test: test_BuildTbl_CorrectValues
-  :line: 41
+  :line: 42
   :message: ''
   :unity_test_time: 0
 - :test: test_BuildTbl_EntireTableCorrect
-  :line: 55
+  :line: 56
   :message: ''
   :unity_test_time: 0
 - :test: test_BuildTbl_SpecificValues
-  :line: 64
+  :line: 65
   :message: ''
   :unity_test_time: 0
 - :test: test_BuildTbl_AlgorithmPattern
-  :line: 75
+  :line: 76
   :message: ''
   :unity_test_time: 0
 - :test: test_BuildTbl_PolynomialDefined
-  :line: 88
+  :line: 89
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -36,4 +36,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.000879771999990453
+:time: 0.0008532410000157142

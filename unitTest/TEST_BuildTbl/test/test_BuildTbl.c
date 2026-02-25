@@ -19,7 +19,8 @@ void setUp(void) {
   memset(Crc8Tbl_u8, 0, sizeof(Crc8Tbl_u8));
 }
 
-void tearDown(void) {}
+void tearDown(void) {
+}
 
 /* Test that BuildTbl populates the entire table without crashing */
 void test_BuildTbl_PopulatesTable(void) {

@@ -19,7 +19,8 @@ void setUp(void)
 }
 
 void tearDown(void)
-{}
+{
+}
 
 void test_BuildTbl_PopulatesTable(void)
 {
@@ -37,7 +38,7 @@ void test_BuildTbl_PopulatesTable(void)
 
   UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((tableEmpty)), (
  ((void *)0)
- ), (UNITY_UINT)(37), UNITY_DISPLAY_STYLE_INT);
+ ), (UNITY_UINT)(38), UNITY_DISPLAY_STYLE_INT);
 }
 
 void test_BuildTbl_CorrectValues(void)
@@ -46,15 +47,15 @@ void test_BuildTbl_CorrectValues(void)
 
   UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((expected_crc8_table[0])), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[0])), (
  ((void *)0)
- ), (UNITY_UINT)(45), UNITY_DISPLAY_STYLE_HEX8);
+ ), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_HEX8);
 
   UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((expected_crc8_table[128])), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[128])), (
  ((void *)0)
- ), (UNITY_UINT)(48), UNITY_DISPLAY_STYLE_HEX8);
+ ), (UNITY_UINT)(49), UNITY_DISPLAY_STYLE_HEX8);
 
   UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((expected_crc8_table[255])), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[255])), (
  ((void *)0)
- ), (UNITY_UINT)(51), UNITY_DISPLAY_STYLE_HEX8);
+ ), (UNITY_UINT)(52), UNITY_DISPLAY_STYLE_HEX8);
 }
 
 void test_BuildTbl_EntireTableCorrect(void)
@@ -63,7 +64,7 @@ void test_BuildTbl_EntireTableCorrect(void)
 
   for(uint16_t i = 0u; i < 256u; i++)
 {
-    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((expected_crc8_table[i])), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[i])), (("Table mismatch at index")), (UNITY_UINT)(59), UNITY_DISPLAY_STYLE_HEX8);
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((expected_crc8_table[i])), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[i])), (("Table mismatch at index")), (UNITY_UINT)(60), UNITY_DISPLAY_STYLE_HEX8);
   }
 }
 
@@ -73,16 +74,16 @@ void test_BuildTbl_SpecificValues(void)
 
   UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0x07)), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[1])), (
  ((void *)0)
- ), (UNITY_UINT)(68), UNITY_DISPLAY_STYLE_HEX8);
+ ), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_HEX8);
   UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0x0E)), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[2])), (
  ((void *)0)
- ), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_HEX8);
+ ), (UNITY_UINT)(70), UNITY_DISPLAY_STYLE_HEX8);
   UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0x09)), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[3])), (
  ((void *)0)
- ), (UNITY_UINT)(70), UNITY_DISPLAY_STYLE_HEX8);
+ ), (UNITY_UINT)(71), UNITY_DISPLAY_STYLE_HEX8);
   UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0x1C)), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[4])), (
  ((void *)0)
- ), (UNITY_UINT)(71), UNITY_DISPLAY_STYLE_HEX8);
+ ), (UNITY_UINT)(72), UNITY_DISPLAY_STYLE_HEX8);
 }
 
 void test_BuildTbl_AlgorithmPattern(void)
@@ -95,15 +96,15 @@ void test_BuildTbl_AlgorithmPattern(void)
 {
     UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((expectedFirst16[i])), (UNITY_INT)(UNITY_INT8 )((Crc8Tbl_u8[i])), (
    ((void *)0)
-   ), (UNITY_UINT)(83), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(84), UNITY_DISPLAY_STYLE_HEX8);
   }
 }
 
 void test_BuildTbl_PolynomialDefined(void)
 {
   do { if (((0) != ((0x07u))))
-{ } else { UnityFail( ((" Expected Not-Equal")), (UNITY_UINT)((90))); } } while (0);
+{ } else { UnityFail( ((" Expected Not-Equal")), (UNITY_UINT)((91))); } } while (0);
   UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0x07)), (UNITY_INT)(UNITY_INT8 )(((0x07u))), (
  ((void *)0)
- ), (UNITY_UINT)(91), UNITY_DISPLAY_STYLE_HEX8);
+ ), (UNITY_UINT)(92), UNITY_DISPLAY_STYLE_HEX8);
 }

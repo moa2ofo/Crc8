@@ -82,12 +82,12 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_BuildTbl.c");
-  run_test(test_BuildTbl_PopulatesTable, "test_BuildTbl_PopulatesTable", 25);
-  run_test(test_BuildTbl_CorrectValues, "test_BuildTbl_CorrectValues", 41);
-  run_test(test_BuildTbl_EntireTableCorrect, "test_BuildTbl_EntireTableCorrect", 55);
-  run_test(test_BuildTbl_SpecificValues, "test_BuildTbl_SpecificValues", 64);
-  run_test(test_BuildTbl_AlgorithmPattern, "test_BuildTbl_AlgorithmPattern", 75);
-  run_test(test_BuildTbl_PolynomialDefined, "test_BuildTbl_PolynomialDefined", 88);
+  run_test(test_BuildTbl_PopulatesTable, "test_BuildTbl_PopulatesTable", 26);
+  run_test(test_BuildTbl_CorrectValues, "test_BuildTbl_CorrectValues", 42);
+  run_test(test_BuildTbl_EntireTableCorrect, "test_BuildTbl_EntireTableCorrect", 56);
+  run_test(test_BuildTbl_SpecificValues, "test_BuildTbl_SpecificValues", 65);
+  run_test(test_BuildTbl_AlgorithmPattern, "test_BuildTbl_AlgorithmPattern", 76);
+  run_test(test_BuildTbl_PolynomialDefined, "test_BuildTbl_PolynomialDefined", 89);
 
   return UNITY_END();
 }
