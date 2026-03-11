@@ -1,0 +1,19 @@
+---
+:source:
+  :file: utExecutionAndResults/utUnderTest/test/test_idx_0x01_MSB_never_set_else_branch.c
+  :dirname: utExecutionAndResults/utUnderTest/test
+  :basename: test_idx_0x01_MSB_never_set_else_branch.c
+:successes: []
+:failures:
+- :test: test_BuildTbl_idx_0x01_MSB_never_set_else_branch
+  :line: 15
+  :message: Expected 7 Was 0
+  :unity_test_time: 0
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 0
+  :failed: 1
+  :ignored: 0
+:stdout: []
+:time: 0.0029808159999902273

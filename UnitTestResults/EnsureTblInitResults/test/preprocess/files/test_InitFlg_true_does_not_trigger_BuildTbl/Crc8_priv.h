@@ -3,10 +3,10 @@
 #ifndef _CRC8_PRIV_H_ // Ceedling-generated include guard
 #define _CRC8_PRIV_H_
 
-uint8_t Crc8Tbl_u8[256u];
-
-_Bool
-    Crc8TblInitFlg_b;
+static uint8_t Crc8Tbl_u8[256u];
+static
+      _Bool
+           Crc8TblInitFlg_b;
 void BuildTbl(void);
 uint8_t CalcByte_u8(uint8_t crc, uint8_t dataByte);
 

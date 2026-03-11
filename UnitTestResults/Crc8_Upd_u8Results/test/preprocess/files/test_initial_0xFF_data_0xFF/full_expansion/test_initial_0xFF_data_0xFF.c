@@ -278,13 +278,13 @@ uint8_t Crc8_Calc_u8(const uint8_t *dataPtr, size_t dataLen);
 # 1 "/usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h" 1 3 4
 # 8 "utExecutionAndResults/utUnderTest/src/Crc8_priv.h" 2
 # 49 "utExecutionAndResults/utUnderTest/src/Crc8_priv.h"
-uint8_t Crc8Tbl_u8[256u];
+static uint8_t Crc8Tbl_u8[256u];
 # 59 "utExecutionAndResults/utUnderTest/src/Crc8_priv.h"
-
+static 
 # 59 "utExecutionAndResults/utUnderTest/src/Crc8_priv.h" 3 4
-_Bool 
+      _Bool 
 # 59 "utExecutionAndResults/utUnderTest/src/Crc8_priv.h"
-    Crc8TblInitFlg_b;
+           Crc8TblInitFlg_b;
 # 99 "utExecutionAndResults/utUnderTest/src/Crc8_priv.h"
 void EnsureTblInit(void);
 # 152 "utExecutionAndResults/utUnderTest/src/Crc8_priv.h"

@@ -1,1 +1,44 @@
-function_name,test_name,total,passed,failed,ignored,linesCvrg,branchesCvrg,Date and time
+| function_name | test_name                                     | total  | passed | failed | ignored | linesCvrg | branchesCvrg | Date and time  |
+|---------------|-----------------------------------------------|--------|--------|--------|---------|-----------|--------------|----------------|
+| EnsureTblInit | InitFlg_true_does_not_trigger_BuildTbl        | FAILED | FAILED | FAILED | -       | 71.4%     | 50.0%        | 11/03/26 10:30 |
+| EnsureTblInit | InitFlg_false_triggers_BuildTbl_and_sets_flag | FAILED | FAILED | FAILED | -       | 71.4%     | 50.0%        | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0xFE_dataByte_0xFE                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0x00_dataByte_0xFF                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0x01_dataByte_0x01                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | golden_vector_crc_0x00_dataByte_0x31          | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0x01_dataByte_0xFE                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0xFF_dataByte_0x00                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0x12_dataByte_0x34                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0x80_dataByte_0x40                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0x80_dataByte_0x80                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | all_table_entries_accessible                  | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0x55_dataByte_0xAA                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0xAA_dataByte_0x55                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | golden_vector_crc_0xFF_dataByte_0x31          | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | xor_operation_crc_0x0F_dataByte_0xF0          | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0x00_dataByte_0x00                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0x7F_dataByte_0x7F                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0xFE_dataByte_0x01                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| CalcByte_u8   | crc_0xFF_dataByte_0xFF                        | PASSED | PASSED | -      | -       | 42.9%     | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | crc_0x00_data_0x7F                            | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | golden_vector_0x00_0x31                       | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | initial_0x00_data_0xFF                        | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | boundary_0x01_data_0x01                       | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | midrange_0x80_data_0x80                       | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | initial_0xFF_data_0xFF                        | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | initial_0xFF_data_0x00                        | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | initial_0x00_data_0x00                        | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | sequential_0xAA_then_0x55                     | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | crc_0x7F_data_0x00                            | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | boundary_0xFE_data_0xFE                       | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| Crc8_Upd_u8   | table_init_verification                       | PASSED | PASSED | -      | -       | 100.0%    | -%           | 11/03/26 10:30 |
+| BuildTbl      | idx_0_lower_boundary                          | PASSED | PASSED | -      | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |
+| BuildTbl      | multiple_calls_idempotent                     | PASSED | PASSED | -      | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |
+| BuildTbl      | idx_0x01_MSB_never_set_else_branch            | FAILED | FAILED | FAILED | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |
+| BuildTbl      | idx_128_mid_range_MSB_set                     | FAILED | FAILED | FAILED | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |
+| BuildTbl      | idx_0x80_MSB_set_first_iteration              | FAILED | FAILED | FAILED | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |
+| BuildTbl      | idx_254_just_inside_upper_boundary            | FAILED | FAILED | FAILED | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |
+| BuildTbl      | idx_1_just_inside_lower_boundary              | FAILED | FAILED | FAILED | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |
+| BuildTbl      | idx_255_upper_boundary                        | FAILED | FAILED | FAILED | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |
+| BuildTbl      | idx_0xFF_MSB_toggles_multiple_times           | FAILED | FAILED | FAILED | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |
+| BuildTbl      | populates_all_256_entries_correctly           | FAILED | FAILED | FAILED | -       | 64.3%     | 100.0%       | 11/03/26 10:30 |

@@ -1,0 +1,19 @@
+---
+:source:
+  :file: utExecutionAndResults/utUnderTest/test/test_multiple_calls_idempotent.c
+  :dirname: utExecutionAndResults/utUnderTest/test
+  :basename: test_multiple_calls_idempotent.c
+:successes:
+- :test: test_BuildTbl_multiple_calls_idempotent
+  :line: 12
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 1
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.0015416280000124516
