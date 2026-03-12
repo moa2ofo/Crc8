@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2026-03-12 07:24:05</td>
+      <td>2026-03-12 09:37:57</td>
     </tr>
   </table>
 </div>
@@ -42,14 +42,14 @@
     <tr>
       <th scope="row">Lines:</th>
       <td>5</td>
-      <td>7</td>
-      <td class="coverage-low">71.4%</td>
+      <td>5</td>
+      <td class="coverage-high">100.0%</td>
     </tr>
     <tr>
       <th scope="row">Functions:</th>
       <td>1</td>
-      <td>3</td>
-      <td class="coverage-low">33.3%</td>
+      <td>1</td>
+      <td class="coverage-high">100.0%</td>
     </tr>
     <tr>
       <th scope="row">Branches:</th>
@@ -75,35 +75,13 @@
     </tr>
     <tr>
       <td>
-        <a href="#l13">EnsureTblInit</a>
+        <a href="#l6">EnsureTblInit</a>
       </td>
       <td>
-        <a href="#l13">13</a>
+        <a href="#l6">6</a>
       </td>
       <td>
-        <a href="#l13"> called 2 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l7">get_Crc8TblInitFlg_b</a>
-      </td>
-      <td>
-        <a href="#l7">7</a>
-      </td>
-      <td>
-        <a href="#l7"> not called</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l8">set_Crc8TblInitFlg_b</a>
-      </td>
-      <td>
-        <a href="#l8">8</a>
-      </td>
-      <td>
-        <a href="#l8"> not called</a>
+        <a href="#l6"> called 2 times</a>
       </td>
     </tr>
   </table>
@@ -126,7 +104,7 @@
       <td class="linebranch">
       </td>
       <td class="linecount "></td>
-      <td class="src "><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EnsureTblInit.h&quot;</span></td>
+      <td class="src "><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EnsureTblInit_help.h&quot;</span></td>
     </tr>
 
     <tr class="source-line">
@@ -134,7 +112,7 @@
       <td class="linebranch">
       </td>
       <td class="linecount "></td>
-      <td class="src "><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stddef.h&gt;</span></td>
+      <td class="src "></td>
     </tr>
 
     <tr class="source-line">
@@ -142,7 +120,7 @@
       <td class="linebranch">
       </td>
       <td class="linecount "></td>
-      <td class="src "><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span></td>
+      <td class="src "><span class="cm">/* FUNCTION TO TEST */</span></td>
     </tr>
 
     <tr class="source-line">
@@ -158,67 +136,11 @@
       <td class="linebranch">
       </td>
       <td class="linecount "></td>
-      <td class="src "><span class="cm">/* static globals (copied) */</span></td>
+      <td class="src "></td>
     </tr>
 
     <tr class="source-line">
       <td class="lineno"><a id="l6" href="#l6">6</a></td>
-      <td class="linebranch">
-      </td>
-      <td class="linecount "></td>
-      <td class="src "><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">Crc8TblInitFlg_b</span><span class="p">;</span></td>
-    </tr>
-
-    <tr class="source-line">
-      <td class="lineno"><a id="l7" href="#l7">7</a></td>
-      <td class="linebranch">
-      </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="kt">_Bool</span><span class="w"> </span><span class="nf">get_Crc8TblInitFlg_b</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Crc8TblInitFlg_b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
-    </tr>
-
-    <tr class="source-line">
-      <td class="lineno"><a id="l8" href="#l8">8</a></td>
-      <td class="linebranch">
-      </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="kt">void</span><span class="w"> </span><span class="nf">set_Crc8TblInitFlg_b</span><span class="p">(</span><span class="kt">_Bool</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Crc8TblInitFlg_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
-    </tr>
-
-    <tr class="source-line">
-      <td class="lineno"><a id="l9" href="#l9">9</a></td>
-      <td class="linebranch">
-      </td>
-      <td class="linecount "></td>
-      <td class="src "></td>
-    </tr>
-
-    <tr class="source-line">
-      <td class="lineno"><a id="l10" href="#l10">10</a></td>
-      <td class="linebranch">
-      </td>
-      <td class="linecount "></td>
-      <td class="src "><span class="cm">/* FUNCTION TO TEST */</span></td>
-    </tr>
-
-    <tr class="source-line">
-      <td class="lineno"><a id="l11" href="#l11">11</a></td>
-      <td class="linebranch">
-      </td>
-      <td class="linecount "></td>
-      <td class="src "></td>
-    </tr>
-
-    <tr class="source-line">
-      <td class="lineno"><a id="l12" href="#l12">12</a></td>
-      <td class="linebranch">
-      </td>
-      <td class="linecount "></td>
-      <td class="src "></td>
-    </tr>
-
-    <tr class="source-line">
-      <td class="lineno"><a id="l13" href="#l13">13</a></td>
       <td class="linebranch">
       </td>
       <td class="linecount coveredLine">2</td>
@@ -226,7 +148,7 @@
     </tr>
 
     <tr class="source-line">
-      <td class="lineno"><a id="l14" href="#l14">14</a></td>
+      <td class="lineno"><a id="l7" href="#l7">7</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
@@ -241,7 +163,7 @@
     </tr>
 
     <tr class="source-line">
-      <td class="lineno"><a id="l15" href="#l15">15</a></td>
+      <td class="lineno"><a id="l8" href="#l8">8</a></td>
       <td class="linebranch">
       </td>
       <td class="linecount coveredLine">2</td>
@@ -249,7 +171,7 @@
     </tr>
 
     <tr class="source-line">
-      <td class="lineno"><a id="l16" href="#l16">16</a></td>
+      <td class="lineno"><a id="l9" href="#l9">9</a></td>
       <td class="linebranch">
       </td>
       <td class="linecount coveredLine">1</td>
@@ -257,7 +179,7 @@
     </tr>
 
     <tr class="source-line">
-      <td class="lineno"><a id="l17" href="#l17">17</a></td>
+      <td class="lineno"><a id="l10" href="#l10">10</a></td>
       <td class="linebranch">
       </td>
       <td class="linecount "></td>
@@ -265,7 +187,7 @@
     </tr>
 
     <tr class="source-line">
-      <td class="lineno"><a id="l18" href="#l18">18</a></td>
+      <td class="lineno"><a id="l11" href="#l11">11</a></td>
       <td class="linebranch">
       </td>
       <td class="linecount coveredLine">1</td>
@@ -273,7 +195,7 @@
     </tr>
 
     <tr class="source-line">
-      <td class="lineno"><a id="l19" href="#l19">19</a></td>
+      <td class="lineno"><a id="l12" href="#l12">12</a></td>
       <td class="linebranch">
       </td>
       <td class="linecount "></td>
