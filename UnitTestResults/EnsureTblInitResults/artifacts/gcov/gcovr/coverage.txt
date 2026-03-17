@@ -7,7 +7,7 @@ File                                       Lines    Exec  Cover   Missing
 utExecutionAndResults/utUnderTest/src/EnsureTblInit.c
                                                5       5   100%
 utExecutionAndResults/utUnderTest/src/EnsureTblInit_help.h
-                                               2       0     0%   10-11
+                                               4       0     0%   10-11,13-14
 ------------------------------------------------------------------------------
-TOTAL                                          7       5    71%
+TOTAL                                          9       5    55%
 ------------------------------------------------------------------------------

@@ -3660,9 +3660,9 @@ uint8_t CalcByte_u8(uint8_t crc, uint8_t dataByte);
  */
 void BuildTbl(void);
 
-uint8_t* get_Crc8Tbl_u8_ptr(void);
+uint8_t *get_Crc8Tbl_u8_ptr(void);
 size_t get_Crc8Tbl_u8_size(void);
-void set_Crc8Tbl_u8(const uint8_t* src, size_t n);
+void set_Crc8Tbl_u8(const uint8_t *src, size_t n);
 
 # 2 "utExecutionAndResults/utUnderTest/test/test_idx_254_just_inside_upper_boundary.c" 2
 # 1 "utExecutionAndResults/utUnderTest/build/test/mocks/test_idx_254_just_inside_upper_boundary/mock_Crc8.h" 1

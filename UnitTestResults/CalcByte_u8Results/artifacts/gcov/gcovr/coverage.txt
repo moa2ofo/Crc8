@@ -7,7 +7,7 @@ File                                       Lines    Exec  Cover   Missing
 utExecutionAndResults/utUnderTest/src/CalcByte_u8.c
                                                2       2   100%
 utExecutionAndResults/utUnderTest/src/CalcByte_u8_help.h
-                                               5       1    20%   11-14
+                                               7       2    28%   13-14,16-18
 ------------------------------------------------------------------------------
-TOTAL                                          7       3    42%
+TOTAL                                          9       4    44%
 ------------------------------------------------------------------------------
